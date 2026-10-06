@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "real-time-video-tracking-pipeline"
+version = "0.1.0"
+description = "An incremental learning project for ordered video tracking"
+requires-python = ">=3.10"
+dependencies = ["ultralytics==8.3.203", "lap==0.5.12", "numpy==1.26.4", "opencv-python==4.10.0.84", "scipy==1.13.1", "matplotlib==3.9.4"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2"]
+
+[project.scripts]
+video-track = "video_tracking.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
